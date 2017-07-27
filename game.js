@@ -31,6 +31,7 @@ document.onkeydown = function(event) {
 	
 	//If key pressed is >=65 (a) and <=90 (z)
 	if (event.keyCode >= 65 && event.keyCode <= 90){
+		// doesn's matter if the use used capital letters A insread of a.
 		var userGuess = event.key.toLowerCase();
 		guessLeft--;
 		//Append user input letter to the array
