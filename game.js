@@ -8,21 +8,18 @@ var computerChoice = options[Math.floor(Math.random() * options.length)];
 //for the user we have a new array that is on the key board.
 var userLetters = new Array();
 
-//reset values of user input array, guessleft and computer choose another letter
+//start over the array of lettes that user choose, guessleft and computer choose another letter.
+// It means, every 9 bad guesses the function will reset all these 3 parameters.  
 function resetScore(){
 	userLetters.splice(0,userLetters.length);	
 	guessLeft = 9;
 	computerChoice = options[Math.floor(Math.random() * options.length)];
 }
 
-//Update scoreboard
+//Update scoreboard of user's wins, losses how much geusses left and letters the user guessed.
 function updateScoreboard(win, loss, guessLeft, userLetters){
 
 	var score = "Wins: " + win + "<br>Loss: " + loss + "<br>Guess left: " + guessLeft + "<p>Your guess so far</p> ";
-	
-	//Changing the color user input letters
-	var ul = document.getElementById("user-letters");
-  	ul.style.color = "mediumblue";
 
   	//injecting HTML
     document.getElementById("score").innerHTML = score;			
@@ -32,7 +29,7 @@ function updateScoreboard(win, loss, guessLeft, userLetters){
 
 document.onkeydown = function(event) {	    	  		    
 	
-	//If key pressed is an alphabet
+	//If key pressed is >=65 (a) and <=90 (z)
 	if (event.keyCode >= 65 && event.keyCode <= 90){
 		var userGuess = event.key.toLowerCase();
 		guessLeft--;
